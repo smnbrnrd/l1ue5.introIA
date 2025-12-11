@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>L1.UE5 - Introduction au fonctionnement de l'IA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="css/cm.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!--------------------------------------------->
+            <!-- Cover slide -->
+            <section class="title-slide">
+                <div class="title">Introduction au fonctionnement de l'intelligence artificielle</div>
+                <div class="subtitle">L'intelligence artificielle pour les sciences et l'ingénierie</div>
+                <div class="author">Simon BERNARD</div>
+                <div class="mail"><a href="mailto:simon.bernard@univ-rouen.fr">simon.bernard@univ-rouen.fr</a></div>
+                <div class="logo"><img src="assets/logo_urn_color.png"></div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les succès récents de l'intelligence artificielle</h1>
+                <h2>Analyse et reconnaissance d'images</h2>
+                <figure class="mt-3">
+                    <img src="assets/detectron2.png" class="w-90 m-auto" alt="">
+                    <figcaption><a href="https://github.com/facebookresearch/detectron2" target="_blank">Detectron2</a> de Facebook AI Research (2019)</figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les succès récents de l'intelligence artificielle</h1>
+                <h2>Analyse et reconnaissance d'images</h2>
+                <figure class="mt-3">
+                    <a href="https://sam2.metademolab.com/demo" target="_blank"><img src="assets/sam2-screen.png" class="w-80 m-auto" alt=""></a>
+                    <figcaption><a href="https://github.com/facebookresearch/sam2" target="_blank">SAM 2</a> de Facebook AI Research (2024)</figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les succès récents de l'intelligence artificielle</h1>
+                <h2>Génération et manipulation d'images et de vidéos</h2>
+                <figure class="mt-3">
+                    <video class="w-100" loop controls preload="auto" autoplay>
+                        <source src="assets/megaportraits1.mp4" type="video/mp4">
+                    </video>
+                    <video class="w-100" loop controls preload="auto" autoplay>
+                        <source src="assets/megaportraits2.mp4" type="video/mp4">
+                    </video>
+                    <figcaption><a href="https://neeek2303.github.io/MegaPortraits/" target="_blank">MegaPortraits</a> de Samsung (2022)</figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les succès récents de l'intelligence artificielle</h1>
+                <h2>Génération et manipulation d'images et de vidéos</h2>
+                <figure class="mt-3">
+                    <img src="assets/pixel2style2pixel-results.png" class="w-70 m-auto" alt="Image manipulation example">
+                    <figcaption><a href="https://github.com/eladrich/pixel2style2pixel" target="_blank">pixel2style2pixel</a> de Penta-AI et Tel-Aviv University (2021)</figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les succès récents de l'intelligence artificielle</h1>
+                <h2>Traitement automatique du language naturel (NLP)</h2>
+                <div class="row">
+                    <div class="col-60 mt-3">
+                        <figure>
+                            <img src="assets/chatgpt-screen.png" class="w-100 m-auto ">
+                            <figcaption><a href="https://chat.openai.com/" target="_blank">ChatGPT</a> de OpenAI (2022)</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-40 small mt-3">
+                        <ul>
+                            <li>2017: apparition des "Transformer"</li>
+                            <li>2020: GPT-3</li>
+                            <li>2022: ChatGPT</li>
+                            <li>2023: modèles multimodaux</li>
+                            <li>Depuis 2024:</li>
+                        </ul>
+                        <figure>
+                            <img src="assets/gemini_logo.png" class="h-2em m-2">
+                            <img src="assets/claude_logo.png" class="h-2em m-2">
+                            <img src="assets/copilot_logo.png" class="h-2em m-2">
+                            <img src="assets/mistral_logo.png" class="h-2em m-2">
+                            <img src="assets/chatgpt_logo.png" class="h-2em m-2">
+                            <img src="assets/llama_logo.png" class="h-2em m-2">
+                            <img src="assets/grok-logo.png" class="h-2em m-2">
+                            <img src="assets/qwen-logo.png" class="h-2em m-2">
+                            <img src="assets/deepseek-logo.png" class="h-2em m-2">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les succès récents de l'intelligence artificielle</h1>
+                <h2>IA agentique</h2>
+                <div class="row">
+                    <div class="col-50 small">
+                        <p>6 niveaux d'autonomie pour les véhicules:</p>
+                        <ol start="0">
+                            <li>pas d'assistance</li>
+                            <li>assistance au conducteur</li>
+                            <li>conduite partiellement automatisée</li>
+                            <li>conduite conditionnellement automatisée</li>
+                            <li>conduite hautement automatisée, dans certaines conditions</li>
+                            <li>autonomie complète, dans n'importe quelles conditions</li>
+                        </ol>
+                    </div>
+                    <div class="col-50">
+                        <figure class="mt-3">
+                            <video class="w-90" loop controls preload="auto" autoplay>
+                                <source src="assets/autopilot-tesla.webm" type="video/webm">
+                            </video>
+                            <figcaption><a href="https://chat.openai.com/" target="_blank">Autopilot</a> de Tesla (2022)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <p class="center mt-4">Pas de véhicules niveau 5 à ce jour. Tesla en est niveau 2. Les taxis Waymo sont au niveau 4.</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les succès récents de l'intelligence artificielle</h1>
+                <h2>IA agentique</h2>
+                <figure class="video-container">
+                    <iframe src="https://www.youtube.com/embed/HYwekersccY?si=ZSMRaYB60wclJTCb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <figcaption class="center mt-2"><a href="https://www.youtube.com/watch?v=HYwekersccY" target="_blank">Getting a Leg up with End-to-end Neural Networks</a> de Boston Dynamics (2021)</figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Comment ça marche?</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'IA d'aujourd'hui &asymp; machine learning</h1>
+                <div class="boxtitle">Apprentissage automatique (<em>machine learning</em>)</div>
+                <div class="boxcontent">Rendre une machine capable d'effectuer des tâches complexes sans avoir été explicitement programmée pour le faire, mais en se basant sur l'expérience, c'est-à-dire en utilisant des données exemples.</div>
+                <figure class="mt-2">
+                    <figcaption class="normal mb-3">Programmation traditionnelle</figcaption>
+                    <img src="assets/ml-vs-prog-1.png" class="w-55">
+                    <figcaption>source: <a href="https://www.enjoyalgorithms.com/" target="_blank">www.enjoyalgorithms.com</a></figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'IA d'aujourd'hui &asymp; machine learning</h1>
+                <div class="boxtitle">Apprentissage automatique (<em>machine learning</em>)</div>
+                <div class="boxcontent">Rendre une machine capable d'effectuer des tâches complexes sans avoir été explicitement programmée pour le faire, mais en se basant sur l'expérience, c'est-à-dire en utilisant des données exemples.</div>
+                <figure class="mt-2">
+                    <figcaption class="normal mb-3">Machine Learning</figcaption>
+                    <img src="assets/ml-vs-prog-2.png" class="w-70">
+                    <figcaption>source: <a href="https://www.enjoyalgorithms.com/" target="_blank">www.enjoyalgorithms.com</a></figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'IA d'aujourd'hui &asymp; machine learning</h1>
+                <div class="boxtitle">Apprentissage automatique (<em>machine learning</em>)</div>
+                <div class="boxcontent">Rendre une machine capable d'effectuer des tâches complexes sans avoir été explicitement programmée pour le faire, mais en se basant sur l'expérience, c'est-à-dire en utilisant des données exemples.</div>
+                <figure class="mt-3">
+                    <img src="assets/cats_birds.png" class="w-70">
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les données, c'est la vie!</h1>
+                <ul>
+                    <li class="important">L'apprentissage automatique est basé sur des données exemples</li>
+                    <li>Une donnée est un vecteur de $d$ valeurs (caractéristiques ou descripteurs)</li>
+                    $$
+                        \mathbf{x} = (x_1, x_2, \ldots, x_d), \quad \mathbf{x} \in \mathcal{X} \subset \mathbb{R}^d
+                    $$
+                    <li class="important">Les données sont associées à une variable cible $y$ que l'on veut prédire</li>
+                    <li>$y \in \mathbb{R}$ (régression) ou $y \in \{c_1, c_2, \ldots, c_K\}$ (classification)</li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-50">
+                        <table border="1" class="smaller mt-3">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>sepal length</th>
+                                    <th>sepal width</th>
+                                    <th>petal length</th>
+                                    <th>petal width</th>
+                                    <th>iris species</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>0</th>
+                                    <td>5.1</td>
+                                    <td>3.5</td>
+                                    <td>1.4</td>
+                                    <td>0.2</td>
+                                    <td><span style="color:blue">setosa</span></td>
+                                </tr>
+                                <tr>
+                                    <th>1</th>
+                                    <td>4.9</td>
+                                    <td>3.0</td>
+                                    <td>1.4</td>
+                                    <td>0.2</td>
+                                    <td><span style="color:blue">setosa</span></td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>4.7</td>
+                                    <td>3.2</td>
+                                    <td>1.3</td>
+                                    <td>0.2</td>
+                                    <td><span style="color: #cb4335  ">versicolor</span></td>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <td>4.6</td>
+                                    <td>3.1</td>
+                                    <td>1.5</td>
+                                    <td>0.2</td>
+                                    <td><span style="color: #d4ac0d ">virginica</span></td>
+                                </tr>
+                                <tr>
+                                    <th>4</th>
+                                    <td>5.0</td>
+                                    <td>3.6</td>
+                                    <td>1.4</td>
+                                    <td>0.2</td>
+                                    <td><span style="color: #d4ac0d ">virginica</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/iris.png" class="w-80">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Apprentissage supervisé</h1>
+                <ul>
+                    <li class="important">L'apprentissage consiste à trouver un modèle $h$ tel que $h(\mathbf{x}) = \hat{y}$, où $\hat{y}$ est la prédiction de $y$ pour $\mathbf{x}$</li>
+                    <li>Pour cela, on s'appuie sur un ensemble de $n$ données d'apprentissage</li>
+                    $$
+                        \mathcal{D} = \{(\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2), \ldots, (\mathbf{x}_n, y_n)\}
+                    $$
+                    où $y_i$ est la "vraie" valeur de $y$ pour $\mathbf{x}_i$
+                </ul>
+                <figure class="mt-4">
+                    <img src="assets/ml-vs-prog-modified.png" class="w-75">
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Apprentissage supervisé</h1>
+                <h2>Exemple "jouet"</h2>
+                <ul>
+                    <li>On décide que $h$ est un polynôme de degré $p$</li>
+                    <li>On dispose des points en bleu pour l'apprentissage (légérement bruités)</li>
+                    <li>Quel est le meilleur modèle?</li>
+                </ul>
+                <figure class="mt-3">
+                    <img src="assets/underoverfitting.png" class="w-100 m-auto" alt="Underfitting vs Overfitting">
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Méthodes d'apprentissage</h1>
+                <div class="row">
+                    <div class="col-50">
+                        <p class="mt-0">70 ans de recherche = multitude de méthodes issues:</p>
+                        <ul>
+                            <li>des statistiques</li>
+                            <li>de l'optimisation mathématique</li>
+                            <li>de la théorie de l'information</li>
+                            <li>du traitement du signal</li>
+                            <li>de la théorie des jeux</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/playground.gif" class="w-70">
+                            <figcaption>source: <a href="https://playground.tensorflow.org/" target="_blank">TensorFlow Playground</a></figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/knn.gif" alt="knn" class="w-100">
+                        </figure>
+                    </div>
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/decisiontree.gif" alt="decisiontree" class="w-100">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Méthodes d'apprentissage</h1>
+                <h2>Parmi ces méthodes, il y a les réseaux de neurones</h2>
+                <ul class="mb-4">
+                    <li>Dans les années 1950, inspiration du fonctionnement des neurones biologiques</li>
+                    <li>Modèle: $h(\mathbf{x}) = \sigma(w_1 x_1 + w_2 x_2 + \ldots + w_d x_d + b) = \sigma(\mathbf{w}^\top \mathbf{x} + b)$ </li>
+                    <li class="important">Les paramètres $w_i$ sont déterminés (appris) à partir des données d'apprentissage</li>
+                </ul>
+                <div class="row">
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/neurone.svg" class="w-85">
+                        </figure>
+                    </div>
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/linearmodel.webp" class="w-85">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Méthodes d'apprentissage</h1>
+                <h2>Parmi ces méthodes, il y a les réseaux de neurones</h2>
+                <ul>
+                    <li>Réseau de neurones = assemblage de plusieurs (beaucoup) neurones</li>
+                    <li>Au fil des années, des réseaux de plus en plus <span class="important">profonds $\rightarrow$ deep learning</span></li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-40 v-center">
+                        <figure>
+                            <img src="assets/multioutput_perceptron.webp" class="w-80">
+                        </figure>
+                    </div>
+                    <div class="col-60 v-center">
+                        <figure>
+                            <img src="assets/neural_network.webp" class="w-85">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'IA d'aujourd'hui &asymp; deep learning</h1>
+                <ul>
+                    <li>Plus il y a de neurones, plus il y a de paramètres à apprendre...</li>
+                    <li>... et plus il faut de données pour l'entraînement</li>
+                    <li>... et plus l'entraînement est coûteux (en temps et en argent)</li>
+                    <li>... et plus le modèle est puissant</li>
+                </ul>
+                <div class="row mt-5">
+                    <div class="col-70">
+                        <p>Par exemple, GPT-4 (la v4 du modèle de ChatGPT):</p>
+                        <ul>
+                            <li>Environ 1000 milliards de paramètres</li>
+                            <li>Entraîné sur 10 To de textes</li>
+                            <li>34 jours d'entraînement (355 années/GPU)</li>
+                            <li>Environ 5M$ pour l'entraînement</li>
+                        </ul>
+                        <p class="small">Notes: ce sont des estimations car OpenAI ne publie plus ces informations depuis la version 3</p>
+                    </div>
+                    <div class="col-30 v-center">
+                        <figure>
+                            <img src="assets/chatgpt_logo.png" class="w-100">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'IA d'aujourd'hui &asymp; deep learning</h1>
+                <h2>Les réseaux de neurones existent depuis 1950 - Pourquoi ça ne fonctionne que depuis 2010?</h2>
+                <div class="row mb-4">
+                    <div class="col-50">
+                        <div class="mb-2">Abondance des données</div>
+                        <img src="assets/imagenet.jpg" style="width: 70%;">
+                    </div>
+                    <div class="col-50">
+                        <div class="mb-2">Dispositifs de calculs plus puissant (GPU)</div>
+                        <img src="assets/nvidia_a100.jpg" style="width: 35%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-50">
+                        <div class="mb-2">Développement de logiciels dédiés</div>
+                        <img src="assets/software_logos.png" style="width: 70%;">
+                    </div>
+                    <div class="col-50">
+                        <div class="mb-2 important">Apprentissage de représentation</div>
+                        <img src="assets/image_features.png" style="width: 70%;">
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Apprentissage de représentation</h1>
+                <h2>Exemple pour les images</h2>
+                <div class="row mb-4">
+                    <div class="col-40">
+                        <img src="assets/image_flattening.webp" class="w-100">
+                    </div>
+                    <div class="col-60">
+                        <ol class="small">
+                            <li>Beaucoup trop de paramètres</li>
+                            <ul class="mb-3">
+                                <li>Image RGB $1024 \times 1024 \approx 3.145M$ de valeurs en entrée</li>
+                                <li>Une couche de $1000$ neurones $\rightarrow 3145M$ de paramètres</li>
+                                <li>... et ce n'est qu'une petite image et un réseau d'une seule couche</li>
+                            </ul>
+                            <li>Information spatiale déconstruite</li>
+                            <ul>
+                                <li>Information niveau pixel</li>
+                                <li>Pas de notion de voisinage, de forme, de texture</li>
+                                <li>Sensible aux moindres modifications (e.g. translation)</li>
+                            </ul>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="assets/translation_invariance.png" class="w-60">
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Apprentissage de représentation</h1>
+                <h2>Exemple pour les images</h2>
+                <ul>
+                    <li>Apprentissage de représentation = transformer l'image en vecteur de valeurs</li>
+                    <li>Ces valeurs doivent traduire au mieux ce que représente l'image</li>
+                    <li>Les techniques utilisées sont spécifiques aux types de données</li>
+                </ul>
+                <figure class="mt-5">
+                    <img src="assets/cnn_fidle.png" class="w-85">
+                </figure>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>Apprentissage de représentation</h1>
+                <h2>Illustration</h2>
+                <figure class="mt-3">
+                    <a href="https://adamharley.com/nn_vis/" target="_blank"><img src="assets/demo_cnn.png" class="w-90"></a>
+                    <figcaption><a href="https://adamharley.com/nn_vis/" target="_blank">https://adamharley.com/nn_vis/</a></figcaption>
+                </figure>
+            </section>
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">L'IA pour les sciences</div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <div class="row">
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/nature.webp" class="w-90">
+							<figcaption>source: Wang et al, "Scientific discovery in the age of artificial intelligence", Nature (2023)</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-50 v-center">
+                        <ul>
+                            <li class="important">Succès majeures de l'IA: applications numériques</li>
+                            <ul>
+                                <li>Images, vidéos, textes, jeux vidéos, etc.</li>
+                                <li>Données massivement disponibles</li>
+                            </ul>
+                            <li class="important">Quid des applications en sciences et ingénierie? Peut-on utiliser l'IA pour:</li>
+                            <ul>
+                                <li>remplacer avantageusement les approches traditionnelles?</li>
+                                <li>résoudre les problèmes plus efficacement?</li>
+                                <li>accélérer la découverte scientifique?</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <div class="row">
+                    <div class="col-50">
+                        <p class="important">Difficultés principales</p>
+                        <ul>
+                            <li>Demande beaucoup de données</li>
+                            <li>Peu interprétable</li>
+                            <li>Limité en généralisation</li>
+                        </ul>
+                        <p>Contradictoire avec la démarche scientifique:</p>
+                        <ul>
+                            <li>S'appuie sur la théorie et les expériences</li>
+                            <li>Doit être interprétable et explicable</li>
+                            <li>Doit permettre des prédictions fiables sur de nouveaux cas</li>
+                        </ul>
+                    </div>
+                    <div class="col-50">
+                        <p class="important">Solution</p>
+                        <figure>
+                            <img src="assets/sciml.png" class="w-90">
+                            <figcaption>source: S. Mishra, B. Mosley, ETH Zürich, <a href="https://camlab.ethz.ch/teaching/ai-in-the-sciences-and-engineering-2024.html" target="_blank">"AI in the Sciences and Engineering"</a> (2024)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <ul>
+                    <li>Sujet de recherche TRÈS actif en IA depuis &sim;2020</li>
+                    <li>Objectif: concevoir de nouvelles méthodes d'IA dédiées aux problèmes scientifiques et d'ingénierie</li>
+                </ul>
+                <div class="row">
+                    <div class="col-50">
+                        <figure class="mt-4">
+                            <img src="assets/ai4science_papers.png" class="w-100">
+                            <figcaption>source: Ben Blaiszik, <a href="https://github.com/blaiszik/ml_publication_charts/tree/master" target="_blank">https://github.com/blaiszik/ml_publication_charts/</a></figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-50">
+                        <figure class="mt-4">
+                            <img src="assets/ai4science_conf.png" class="w-80">
+                            <figcaption>source: S. Mishra, B. Mosley, ETH Zürich, <a href="https://camlab.ethz.ch/teaching/ai-in-the-sciences-and-engineering-2024.html" target="_blank">"AI in the Sciences and Engineering"</a> (2024)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <h2>Pour quoi faire?</h2>
+                <ul>
+                    <li class="important">À la base de nombreuses théories scientifiques, il y a les Équations aux Dérivées Partielles (EDP)</li>
+                    <li>Dérivée partielle d'une fonction $u(x_1, \ldots, x_n) : \mathbb{R}^n \to \mathbb{R}$:</li>
+                    $$
+                        \frac{\partial u}{\partial x_i} = \lim_{\Delta x_i \to 0} \frac{u(x_1, \ldots, x_i + \Delta x_i, \ldots, x_n) - u(x_1, \ldots, x_i, \ldots, x_n)}{\Delta x_i}
+                    $$
+                    soit <span class="important">l'ampleur de variation de $u$ par rapport à un petit changement de $x_i$</span>
+                    <li>Équations aux Dérivées Partielles:</li>
+                    $$
+                        F\left(x_1, \ldots, x_n, u, \frac{\partial u}{\partial x_1}, \ldots, \frac{\partial u}{\partial x_n}, \frac{\partial^2 u}{\partial x_1^2}, \frac{\partial^2 u}{\partial x_1 \partial x_2}, \ldots \right) = 0
+                    $$
+                    <li>Pour modéliser des phénomènes physique (mécanique, électromagnétisme, acoustique, thermodynamique), chimiques (cinétique des réactions), ou biologiques (dynamique des populations)</li>
+                </ul>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <h2>Pour quoi faire?</h2>
+                <ul>
+                    <li>Comprendre et résoudre ces équations est crucial pour de nombreuses applications scientifiques et industrielles: simulation aérodynamique, prévisions météorologiques, modélisation biologique, etc.</li>
+                    <li class="important">Approches traditionnelles: méthodes numériques, coûteuses en temps et en calculs et parfois complexes</li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-55">
+                        <figure>
+                            <img src="assets/dynamicalsystem_examples.png" alt="dynamics" class="w-90">
+                            <figcaption>source: Yuan YIN, soutenance de thèse, Sorbonne, 2023</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-45 mt-3">
+                        <figure>
+                            <img src="assets/Flow_around_a_wing.gif" class="w-60">
+                        </figure>
+                        <figure>
+                            <img src="assets/Cylinder_flow.gif" class="w-95">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <h2>Pour quoi c'est dur?</h2>
+                <ul>
+                    <li>Pour entraîner un réseaux de neurones à résoudre une EDP, <span class="important">il faut beaucoup de données!</span></li>
+                    <li>Quelles données? des simulations numériques, des mesures expérimentales, des observations réelles</li>
+                    <li>Obtenir ces données est très coûteux en temps et en ressources, parfois difficiles, voire impossibles</li>
+                </ul>
+
+                <p class="mt-4">Exemple en mécanique des fluides numérique (Navier-Stokes):</p>
+                <div class="row">
+                    <div class="col-50 mt-3">
+                        <ul>
+                            <li>Besoin de simulations précises et longues</li>
+                            <li>Plusieurs jours de calculs par simulation</li>
+                            <li>Besoin de milliers de simulations pour couvrir tous les cas possibles</li>
+                        </ul>
+                    </div>
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/navier-stokes-simulation.gif" class="w-49">
+                            <img src="assets/navier-stokes-prediction.gif" class="w-49">
+                            <figcaption>Gauche: exemple d'une simulation numérique courte et de faible qualité; <br>Droite: simulation obtenue par un réseau de neurones entrainé sur ce type de simulations</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <h2>Pour quoi c'est dur?</h2>
+                <ul>
+                    <li>Résolutions multiples pour une même EDP: conditions initiales, conditions aux limites, paramètres</li>
+                    <li class="important">Difficile de prédire au delà des conditions/paramètres non vues lors de l'entraînement</li>
+                </ul>
+                <figure>
+                    <img src="assets/navier-stokes-initialconditions.gif" class="w-70 mt-3 framed">
+                    <figcaption>source: Zongyi LI (<a href="https://zongyi-li.github.io/neural-operator/" target="_blank">https://zongyi-li.github.io/neural-operator/</a>)</figcaption>
+                </figure>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <h2>Comment faire?</h2>
+                <div class="row">
+                    <div class="col-32">
+                        <figure class="mt-4">
+                            <figcaption class="normal black">Adapter l'apprentissage pour tenir compte des connaissances scientifiques</figcaption>
+                            <img src="assets/sciml_approach1.png" class="w-75 mt-4">
+                        </figure>
+                    </div>
+                    <div class="col-32">
+                        <figure class="mt-4">
+                            <figcaption class="normal black">Adapter le fonctionnement pour respecter les principes scientifiques</figcaption>
+                            <img src="assets/sciml_approach2.png" class="w-75 mt-4">
+                        </figure>
+                    </div>
+                    <div class="col-32">
+                        <figure class="mt-4">
+                            <figcaption class="normal black">Incorporer des réseaux de neurones dans les modèles scientifiques</figcaption>
+                            <img src="assets/sciml_approach3.png" class="w-100 mt-4">
+                        </figure>
+                    </div>
+                </div>
+                <figure><figcaption>source: S. Mishra, B. Mosley, ETH Zürich, <a href="https://camlab.ethz.ch/teaching/ai-in-the-sciences-and-engineering-2024.html" target="_blank">"AI in the Sciences and Engineering"</a> (2024)</figcaption></figure>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <h2>Comment faire? par exemple...</h2>
+                <ul>
+                    <li class="important">Physics-informed neural networks (PINNs)</li>
+                    <li>Un réseau de neurones entraîné pour approximer la solution d'une EDP</li>
+                    <li>Apprend les données aux limites + apprend à respecter l'EDP</li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-50 v-center">
+                        <figure>
+                            <img src="assets/pinn.png" class="w-100">
+                            <figcaption>source: Ben Moseley (<a href="https://benmoseley.blog/my-research/so-what-is-a-physics-informed-neural-network/" target="_blank">https://benmoseley.blog/my-research/so-what-is-a-physics-informed-neural-network/</a>)</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-50 v-center">
+                        <figure>
+                            <img src="assets/burgers_illu.png" class="w-80">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>L'IA pour les sciences</h1>
+                <h2>Comment faire? par exemple...</h2>
+                <ul>
+                    <li class="important">Fourier Neural Operator (FNO)</li>
+                    <li>Apprendre l'opérateur $F$ de l'EDP plutôt que la solution $u$</li>
+                </ul>
+                <figure class="mt-2 mb-3">
+                    <img src="assets/function_learning.png" class="w-40" style="margin-right:2rem;">
+                    <img src="assets/operator_learning.png" class="w-40">
+                    <figcaption>Gauche: $y = \sigma(\mathbf{w}^\top \mathbf{x} + b)$; Droite: $u(\mathbf{x}) = \int \kappa(\mathbf{x},\mathbf{y}) a(\mathbf{y}) d\mathbf{y} + \mathbf{w}a(\mathbf{x})$</figcaption>
+                </figure>
+                <ul>
+                    <li>$\kappa$ est une fonction que l'on peut apprendre, par exemple avec une transformée de Fourier</li>
+                </ul>
+                <figure>
+                    <img src="assets/fno_full.png" class="w-60 mt-3">
+                </figure>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>Exemples d'applications récentes</h1>
+                <h2>Prévision météorologique</h2>
+                <div class="row">
+                    <div class="col-50">
+                        <ul>
+                            <li class="important">GraphCast de Google DeepMind (2023)</li>
+                            <li>Données:</li>
+                            <ul>
+                                <li>Grille 0.25° latitude/longitude &asymp; 1M points</li>
+                                <li>Surface, atmosphère, pression (227 desc.)</li>
+                                <li>39 années de relevés météo (ECMWF)</li>
+                            </ul>
+                        </ul>
+                        <figure class="mt-4">
+                            <img src="assets/graphcast.gif" class="w-100" alt="graphcast">
+                        </figure>
+                    </div>
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/graphcast.png" class="w-100" alt="graphcastmodel">
+                            <figcaption>source: GraphCast, Google DeepMind, 2023</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>Exemples d'applications récentes</h1>
+                <h2>Production d'énergie par fusion nucléaire</h2>
+                <ul>
+                    <li>Fusion nucléaire = fusion de deux atomes pour produire de l'énergie</li>
+                    <li>Énergie performante, propre et quasi inépuisable (combustible naturel, rendement élevé)</li>
+                    <li>Expérimental, car très compliqué à maîtriser à cause de l'état instable du plasma utilisé pour la fusion</li>
+                    <li class="important">IA pour modéliser et contrôler le plasma dans les réacteurs à fusion</li>
+                </ul>
+                <figure class="mt-4">
+                    <img src="assets/nuclear-fusion-controled-by-ai3.webp" class="w-50" alt="">
+                    <img src="assets/nuclear-fusion-controled-by-ai.gif" class="w-45">
+                    <figcaption>Degrave et al., "Magnetic control of tokamak plasmas through deep reinforcement learning", Nature, 2023</figcaption>
+                </figure>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>Exemples d'applications récentes</h1>
+                <h2>Prédiction de la structure des protéines</h2>
+                <ul>
+                    <li>Les cellules vivantes sont constituées de protéines, qui participent aux fonctions essentielles de la vie</li>
+                    <li>Une protéine est une chaîne d'acides aminés, déterminée par le code génétique (ADN)</li>
+                    <li>Cette chaîne se replie en une structure 3D spécifique, à la faveur des intéractions chimiques</li>
+                    <li class="important">Comprendre, prédire et maîtriser ce repliement est un enjeu majeur en biologie et en médecine</li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/dna-rna-protein.png" class="w-100">
+                        </figure>
+                    </div>
+                    <div class="col-50">
+                        <figure>
+                            <img src="assets/protein-folding.jpg" class="w-75">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>Exemples d'applications récentes</h1>
+                <h2>Prédiction de la structure des protéines</h2>
+
+                <div class="row">
+                    <div class="col-70">
+                        <ul>
+                            <li class="important">AlphaFold 2 de Google DeepMind (2021)</li>
+                            <li>Entraîné sur 200k+ structures déjà connues</li>
+                            <li>Prédictions pour presque toutes les protéines connues (&sim; 200M)</li>
+                            <li>Principes d'IA inspirés des LLM et avec une génération itérative</li>
+                        </ul>
+                        <figure class="mt-3">
+                            <video class="w-100" loop controls preload="auto" autoplay>
+                                <source src="assets/alphafold.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                    </div>
+                    <div class="col-30">
+                        <figure>
+                            <img src="assets/alphafold-nature.png" class="w-100">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------------------------------>
+            <section>
+                <h1>En (très) résumé...</h1>
+                <ul class="fancy">
+                    <li>IA pour les sciences: le nouveau graal de la communauté scientifique</li>
+                    <li>Objectif: <span class="important">combiner les connaissances scientifiques et l'apprentissage profond</span></li>
+                    <li>Déjà beaucoup d'approches prometteuses (PINN et FNO ne sont que deux exemples)</li>
+                    <li>Encore beaucoup de problèmes ouverts: interprétabilité, généralisation (on y est pas encore), problème inverse (découvrir des lois de la physique à l'aide de l'IA)</li>
+                    <li class="important">Énormement de potentiel pour faire progresser les sciences et l'ingénierie</li>
+                    <li>Une ingrédient clé pour les <em>World Models</em><span class="exponent">&ast;</span>?...</li>
+                </ul>
+                <span class="small mt-5"><span class="exponent">&ast;</span> les <em>World models</em> sont des IA capables de comprendre la dynamique du monde réel, y compris la physique et les propriétés spatiales</span>
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="reveal/plugin/highlight/highlight.js"></script>
+	<script src="reveal/plugin/math/math.js"></script>
+    <script src="reveal/plugin/zoom/zoom.js"></script>
+    <script src="reveal/plugin/reveald3.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 800,
+            height: 600,
+            margin: 0.05,
+            center: false,
+            hash: true,
+            controls: false,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            mouseWheel: true,
+            transition: 'none', // Transition style : none/fade/slide/convex/concave/zoom
+            progress: true,
+            autoPlayMedia: true,
+            plugins: [ RevealNotes, RevealHighlight, Reveald3, RevealZoom, RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+</html>
